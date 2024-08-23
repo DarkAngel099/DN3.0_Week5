@@ -1,7 +1,6 @@
 import os
 import pickle
 
-# Function to read contacts from a text file
 def read_contacts_from_text(file_name):
     if not os.path.exists(file_name):
         return []
@@ -10,19 +9,16 @@ def read_contacts_from_text(file_name):
         contacts = [line.strip() for line in file.readlines()]
     return contacts
 
-# Function to write contacts to a text file
 def write_contacts_to_text(file_name, contacts):
     with open(file_name, 'w') as file:
         for contact in contacts:
             file.write(contact + '\n')
 
-# Function to add a contact
 def add_contact_to_text(file_name, contact):
     contacts = read_contacts_from_text(file_name)
     contacts.append(contact)
     write_contacts_to_text(file_name, contacts)
 
-# Function to remove a contact
 def remove_contact_from_text(file_name, contact):
     contacts = read_contacts_from_text(file_name)
     if contact in contacts:
@@ -31,7 +27,6 @@ def remove_contact_from_text(file_name, contact):
     else:
         print("Contact not found.")
 
-# Function to display all contacts
 def display_contacts_from_text(file_name):
     contacts = read_contacts_from_text(file_name)
     if contacts:
@@ -41,7 +36,6 @@ def display_contacts_from_text(file_name):
     else:
         print("No contacts found.")
 
-# Function to read contacts from a binary file
 def read_contacts_from_binary(file_name):
     if not os.path.exists(file_name):
         return []
@@ -54,18 +48,15 @@ def read_contacts_from_binary(file_name):
         return []
     return contacts
 
-# Function to write contacts to a binary file
 def write_contacts_to_binary(file_name, contacts):
     with open(file_name, 'wb') as file:
         pickle.dump(contacts, file)
 
-# Function to add a contact
 def add_contact_to_binary(file_name, contact):
     contacts = read_contacts_from_binary(file_name)
     contacts.append(contact)
     write_contacts_to_binary(file_name, contacts)
 
-# Function to remove a contact
 def remove_contact_from_binary(file_name, contact):
     contacts = read_contacts_from_binary(file_name)
     if contact in contacts:
@@ -74,7 +65,6 @@ def remove_contact_from_binary(file_name, contact):
     else:
         print("Contact not found.")
 
-# Function to display all contacts
 def display_contacts_from_binary(file_name):
     contacts = read_contacts_from_binary(file_name)
     if contacts:
@@ -84,7 +74,6 @@ def display_contacts_from_binary(file_name):
     else:
         print("No contacts found.")
 
-# User interaction function
 def user_interaction():
     print("Contact Management System")
     print("1. Add Contact")
